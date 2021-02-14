@@ -1,0 +1,35 @@
+@mixin all_flex_center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+$headerBackColor: #1976d2;
+
+header {
+	height: 80px;
+	background: $headerBackColor;
+	@include all_flex_center();
+	nav {
+		@include all_flex_center();
+
+		.navLink {
+			padding: 8px 10px;
+			margin-right: 35px;
+			text-decoration: none;
+			border-radius: 4px;
+			color: #fff;
+			font-weight: 500;
+			font-size: 18px;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		.selected {
+			color: rgba(0, 0, 0, 0.67);
+		}
+	}
+}
