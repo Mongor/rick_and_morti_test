@@ -24,7 +24,7 @@ const LocationsPage = () => {
 			{isLoaded ? (
 				<LoadingScreen />
 			) : (
-				<h1> counts of episodes {locations.info.count}</h1>
+				<h1> counts of Locations {locations.info.count}</h1>
 			)}
 		</section>
 	);

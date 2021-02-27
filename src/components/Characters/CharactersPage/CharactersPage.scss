@@ -1,0 +1,40 @@
+.characters_section {
+	margin: 20px 0;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	.character_block {
+		margin-bottom: 10px;
+		padding: 10px;
+		width: 21%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		cursor: pointer;
+		img {
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+		}
+		.name_span {
+			margin-top: 20px;
+			font-size: 18px;
+		}
+		&:hover {
+			img {
+				transform: scale(1.1);
+			}
+			.name_span {
+				transform: scale(1.1);
+			}
+		}
+
+		@media (max-width: 760px) {
+			width: 44%;
+		}
+		@media (max-width: 400px) {
+			width: 100%;
+		}
+	}
+}

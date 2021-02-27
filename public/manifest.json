@@ -1,6 +1,6 @@
 {
-  "short_name": "Rick and Morti",
-  "name": "Rick and Morti App",
+  "short_name": "Rick and Morty",
+  "name": "Rick and Morty App",
   "start_url": ".",
   "display": "standalone"
 }
