@@ -20,12 +20,14 @@
 		.name_span {
 			margin-top: 20px;
 			font-size: 18px;
+			max-width: 250px;
+			height: 21px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			text-align: center;
 		}
 		&:hover {
 			img {
-				transform: scale(1.1);
-			}
-			.name_span {
 				transform: scale(1.1);
 			}
 		}

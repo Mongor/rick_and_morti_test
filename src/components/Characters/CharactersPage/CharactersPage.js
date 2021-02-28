@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import LoadingScreen from '../../UI/LoadingScreen/LoadingScreen';
+import CustomPagination from '../../UI/CustomPagination/CustomPagination';
+
 import CharacterModal from '../CharacterModal/CharacterModal';
 
 import Paper from '@material-ui/core/Paper';
@@ -8,27 +10,30 @@ import './CharactersPage.scss';
 
 const CharactersPage = () => {
 	const [open, setOpen] = useState(false);
+	const [charId, setCharId] = useState(null);
+	const [dataUrl, setDataUrl] = useState(
+		'https://rickandmortyapi.com/api/character'
+	);
 
 	const [characters, setCharacters] = useState(null);
 	const [isLoaded, setIsLoaded] = useState(true);
 	useEffect(() => {
-		fetch('https://rickandmortyapi.com/api/character')
-			.then(response => response.json())
-			.then(data => setCharacters(data))
-			.catch(error => {
+		fetch(dataUrl)
+			.then((response) => response.json())
+			.then((data) => setCharacters(data))
+			.catch((error) => {
 				console.log('some error', error);
 			})
 			.finally(() => {
 				setIsLoaded(false);
 			});
-	}, []);
+	}, [dataUrl]);
 
 	console.log('characters', characters);
 
-	const openModal = cahracterID => {
-		if (cahracterID) {
-			setOpen(true);
-		}
+	const openModal = (id) => {
+		setCharId(id);
+		setOpen(true);
 	};
 
 	return (
@@ -50,15 +55,19 @@ const CharactersPage = () => {
 								<span className='name_span'>
 									{character.name}
 								</span>
-								<CharacterModal
-									characterId={character.id}
-									character={character}
-									open={open}
-									setOpen={setOpen}
-								/>
 							</Paper>
 						);
 					})}
+					<CharacterModal
+						characterId={charId}
+						charactersAll={characters.results}
+						open={open}
+						setOpen={setOpen}
+					/>
+					<CustomPagination
+						pagInfo={characters}
+						setDataUrl={setDataUrl}
+					/>
 				</>
 			)}
 		</section>
