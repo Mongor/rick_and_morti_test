@@ -21,9 +21,9 @@ const EpisodesPage = () => {
 
 	useEffect(() => {
 		fetch(dataUrl)
-			.then(response => response.json())
-			.then(data => setEpisodes(data))
-			.catch(error => {
+			.then((response) => response.json())
+			.then((data) => setEpisodes(data))
+			.catch((error) => {
 				console.log('some error', error);
 			})
 			.finally(() => {
@@ -51,7 +51,7 @@ const EpisodesPage = () => {
 											<TableCell>
 												{episode.air_date}
 											</TableCell>
-											<TableCell>
+											<TableCell className='episodes_td'>
 												{episode.episode}
 											</TableCell>
 										</TableRow>

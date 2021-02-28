@@ -5,6 +5,16 @@
 .tr_hover {
 	&:hover {
 		background: #d66b1e;
-		color: #fff;
+		transition: 0.5s all;
+
+		td {
+			color: #fff;
+			transition: 0.5s all;
+
+			&:last-child {
+				transition: 0.5s all;
+				transform: scale(1.1);
+			}
+		}
 	}
 }
