@@ -3,16 +3,15 @@ import Dialog from '@material-ui/core/Dialog';
 
 import './CharacterModal.scss';
 
-const CharacterModal = (props) => {
+const CharacterModal = props => {
 	const { open, setOpen, charactersAll, characterId } = props;
 	const handleClose = () => {
 		setOpen(false);
 	};
-	console.log('characterId', characterId);
 	return (
 		<Dialog onClose={handleClose} open={open} maxWidth='md'>
 			{charactersAll
-				.filter((character) => character.id === characterId)
+				.filter(character => character.id === characterId)
 				.map((charData, i) => (
 					<div className='dialog_block' key={i}>
 						<div className='description'>

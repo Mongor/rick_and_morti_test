@@ -19,9 +19,9 @@ const CharactersPage = () => {
 	const [isLoaded, setIsLoaded] = useState(true);
 	useEffect(() => {
 		fetch(dataUrl)
-			.then((response) => response.json())
-			.then((data) => setCharacters(data))
-			.catch((error) => {
+			.then(response => response.json())
+			.then(data => setCharacters(data))
+			.catch(error => {
 				console.log('some error', error);
 			})
 			.finally(() => {
@@ -29,9 +29,7 @@ const CharactersPage = () => {
 			});
 	}, [dataUrl]);
 
-	console.log('characters', characters);
-
-	const openModal = (id) => {
+	const openModal = id => {
 		setCharId(id);
 		setOpen(true);
 	};
