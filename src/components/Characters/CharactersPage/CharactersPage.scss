@@ -12,6 +12,8 @@
 		justify-content: center;
 		flex-direction: column;
 		cursor: pointer;
+		transition: 0.5s all;
+
 		img {
 			width: 80px;
 			height: 80px;
@@ -27,8 +29,13 @@
 			text-align: center;
 		}
 		&:hover {
+			transition: 0.5s all;
+			background: #d66b1e;
 			img {
 				transform: scale(1.1);
+			}
+			.name_span {
+				color: #ffffff;
 			}
 		}
 

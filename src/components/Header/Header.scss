@@ -27,6 +27,12 @@ header {
 			&:last-child {
 				margin-right: 0;
 			}
+
+			@media (max-width: 768px) {
+				font-size: 16px;
+				margin-right: 18px;
+				padding: 4px 7px;
+			}
 		}
 		.selected {
 			color: rgba(0, 0, 0, 0.67);
