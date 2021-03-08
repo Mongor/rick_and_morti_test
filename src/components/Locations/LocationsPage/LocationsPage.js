@@ -30,6 +30,7 @@ const LocationsPage = () => {
 	}, [dataUrl]);
 
 	console.log('locations', locations);
+
 	return (
 		<section>
 			{isLoaded ? (
@@ -43,14 +44,18 @@ const LocationsPage = () => {
 								{locations.results.map((location, i) => {
 									return (
 										<TableRow className='tr_hover' key={i}>
-											<TableCell>
+											<TableCell title='Name'>
 												{location.name}
 											</TableCell>
-											<TableCell>
+											<TableCell title='Type'>
 												{location.type}
 											</TableCell>
-											<TableCell>
+											<TableCell title='Dimension'>
 												{location.dimension}
+											</TableCell>
+											<TableCell title='Residents'>
+												Residents on{' '}
+												{location.residents.length}
 											</TableCell>
 										</TableRow>
 									);

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LoadingScreen from '../../UI/LoadingScreen/LoadingScreen';
 import CustomPagination from '../../UI/CustomPagination/CustomPagination';
-import EpisodesFilter from '../EpisodesFilter/EpisodesFilter';
 
 import './EpisodesPage.scss';
 
@@ -21,9 +20,11 @@ const EpisodesPage = () => {
 
 	useEffect(() => {
 		fetch(dataUrl)
-			.then((response) => response.json())
-			.then((data) => setEpisodes(data))
-			.catch((error) => {
+			.then(response => response.json())
+			.then(data => {
+				setEpisodes(data);
+			})
+			.catch(error => {
 				console.log('some error', error);
 			})
 			.finally(() => {
@@ -37,8 +38,6 @@ const EpisodesPage = () => {
 				<LoadingScreen />
 			) : (
 				<>
-					{/* <EpisodesFilter
-					/> */}
 					<TableContainer component={Paper}>
 						<Table>
 							<TableBody>
