@@ -6,6 +6,7 @@ import './EpisodesPage.scss';
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
+import TableHead from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableRow from '@material-ui/core/TableRow';
@@ -20,11 +21,11 @@ const EpisodesPage = () => {
 
 	useEffect(() => {
 		fetch(dataUrl)
-			.then(response => response.json())
-			.then(data => {
+			.then((response) => response.json())
+			.then((data) => {
 				setEpisodes(data);
 			})
-			.catch(error => {
+			.catch((error) => {
 				console.log('some error', error);
 			})
 			.finally(() => {
@@ -40,6 +41,13 @@ const EpisodesPage = () => {
 				<>
 					<TableContainer component={Paper}>
 						<Table>
+							<TableHead className='th_table'>
+								<TableRow>
+									<TableCell>Episode Name</TableCell>
+									<TableCell>Episode Date</TableCell>
+									<TableCell>Episode Number</TableCell>
+								</TableRow>
+							</TableHead>
 							<TableBody>
 								{episodes.results.map((episode, i) => {
 									return (

@@ -4,6 +4,7 @@ import CustomPagination from '../../UI/CustomPagination/CustomPagination';
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
+import TableHead from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableRow from '@material-ui/core/TableRow';
@@ -19,9 +20,9 @@ const LocationsPage = () => {
 	const [isLoaded, setIsLoaded] = useState(true);
 	useEffect(() => {
 		fetch(dataUrl)
-			.then(response => response.json())
-			.then(data => setLocations(data))
-			.catch(error => {
+			.then((response) => response.json())
+			.then((data) => setLocations(data))
+			.catch((error) => {
 				console.log('some error', error);
 			})
 			.finally(() => {
@@ -32,14 +33,21 @@ const LocationsPage = () => {
 	console.log('locations', locations);
 
 	return (
-		<section>
+		<section className='location_section'>
 			{isLoaded ? (
 				<LoadingScreen />
 			) : (
 				<>
-					<h1> counts of Locations {locations.info.count}</h1>
 					<TableContainer component={Paper}>
 						<Table>
+							<TableHead className='th_table'>
+								<TableRow>
+									<TableCell>Location Name</TableCell>
+									<TableCell>Location Type</TableCell>
+									<TableCell>Dimension</TableCell>
+									<TableCell>Residents</TableCell>
+								</TableRow>
+							</TableHead>
 							<TableBody>
 								{locations.results.map((location, i) => {
 									return (
@@ -54,7 +62,7 @@ const LocationsPage = () => {
 												{location.dimension}
 											</TableCell>
 											<TableCell title='Residents'>
-												Residents on{' '}
+												Residents on it{' '}
 												{location.residents.length}
 											</TableCell>
 										</TableRow>
