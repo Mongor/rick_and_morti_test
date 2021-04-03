@@ -5,7 +5,6 @@ import { Switch, Route } from 'react-router-dom';
 import CharactersPage from './Characters/CharactersPage/CharactersPage';
 import EpisodesPage from './Episodes/EpisodesPage/EpisodesPage';
 import LocationsPage from './Locations/LocationsPage/LocationsPage';
-import MyWatchListPage from './MyWatchList/MyWatchListPage/MyWatchListPage';
 
 const Router = () => {
 	return (
@@ -19,9 +18,6 @@ const Router = () => {
 				</Route>
 				<Route path='/locations'>
 					<LocationsPage />
-				</Route>
-				<Route path='/myWatchList'>
-					<MyWatchListPage />
 				</Route>
 			</Switch>
 		</Container>

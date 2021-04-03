@@ -4,10 +4,8 @@ import Button from '@material-ui/core/Button';
 
 import './CustomPagination.scss';
 
-const CustomPagination = (props) => {
+const CustomPagination = props => {
 	const { setDataUrl, pagInfo } = props;
-
-	console.log(pagInfo);
 
 	const getNextPage = () => {
 		if (pagInfo.info.next !== null) {

@@ -27,12 +27,6 @@ const Header = () => {
 						to='/locations'>
 						Locations
 					</NavLink>
-					<NavLink
-						className='navLink'
-						activeClassName='selected'
-						to='/myWatchList'>
-						My Watch List
-					</NavLink>
 				</nav>
 			</Container>
 		</header>
